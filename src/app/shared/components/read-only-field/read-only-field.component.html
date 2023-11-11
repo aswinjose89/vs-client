@@ -1,0 +1,14 @@
+<mat-form-field appearance="fill" class="w-100">
+    <mat-label>{{title}}</mat-label>
+    <mat-icon matSuffix [matTooltip]="comment">help</mat-icon>
+    <input
+        matInput
+        [placeholder]="title"
+        readonly
+        [value]="value"
+        class="text-with-dots"  
+        [ngClass]="class" 
+        [matTooltip]="value" 
+      />
+    
+  </mat-form-field>

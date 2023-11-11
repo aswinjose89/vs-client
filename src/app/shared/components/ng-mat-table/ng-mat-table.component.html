@@ -1,0 +1,107 @@
+<div class="table-container">
+  <table mat-table #table matSort [dataSource]="dataSource" 
+                            (matSortChange)="handleSortChange($event)">
+
+      <ng-container
+        *ngFor="let column of columns, let i=index"
+      >
+        <ng-container *ngIf="column.type=='checkbox'" [matColumnDef]="column.columnDef">
+          <th *matHeaderCellDef class="center">
+            <mat-checkbox (change)="$event ? chkbxMasterHeader() : null"
+                          [checked]="selection.hasValue() && isAllSelected()"
+                          [indeterminate]="selection.hasValue() && !isAllSelected()">
+            </mat-checkbox>
+          </th>
+          <td *matCellDef="let row" class="center">
+            <mat-checkbox (click)="$event.stopPropagation()"
+                          (change)="$event ? selection.toggle(row) : null"
+                          [checked]="selection.isSelected(row)">
+            </mat-checkbox>
+          </td>
+        </ng-container>
+
+        <ng-container *ngIf="column.type==undefined || column.type=='string'" 
+                      [matColumnDef]="column.columnDef">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>
+            <strong>{{ column.header | async }}</strong>
+          </th>
+          <td mat-cell *matCellDef="let row">
+            <ng-container *ngIf="column.cell; then cellCol else normalCol"></ng-container>          
+            <ng-template #cellCol>
+              <span [innerHTML]="column.cell(row)" [matTooltip]="row[column.columnDef]"></span>
+            </ng-template>          
+            <ng-template #normalCol>
+              <span [innerHTML]="row[column.columnDef]" [matTooltip]="row[column.columnDef]">
+              </span>
+            </ng-template> 
+          </td>
+        </ng-container>
+        <!-- Render Custom Template Dynamically-->
+        <ng-container *ngIf="column.type=='template'" [matColumnDef]="column.columnDef">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>
+            <strong>{{ column.header | async }}</strong>
+          </th>
+          <td mat-cell *matCellDef="let row">
+            <ng-container [ngTemplateOutlet]="column.cellTemplate" 
+            [ngTemplateOutletContext]="{row: row, column: column, value: row[column.columnDef]}">
+            </ng-container>
+          </td>
+        </ng-container>
+        <ng-container *ngIf="column.type=='link'" [matColumnDef]="column.columnDef">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>
+            <strong>{{ column.header | async }}</strong>
+          </th>
+          <td mat-cell *matCellDef="let row">
+            <ng-container *ngIf="column.cell; then cellCol else normalCol"></ng-container>          
+            <ng-template #cellCol>
+              <a [routerLink]="['details', row[column.columnDef]]" [innerHTML]="column.cell(row)" 
+              [matTooltip]="column.cell(row)" [href]="column.route" target="{{column.target}}">
+              </a>
+            </ng-template> 
+            <ng-template #normalCol>
+              <a [innerHTML]="row[column.columnDef]" [routerLink]="[column.route, row[column.columnDef]]" 
+              [matTooltip]="row[column.columnDef]" [href]="column.route" target="{{column.target}}">
+              </a>
+            </ng-template> 
+          </td>
+        </ng-container>
+
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns" (click)="getRowRecord(row);" [class]="row.row_classes"></tr>
+      <!-- Row shown when there is no data. -->
+      <tr class="mat-row relative w-100" *matNoDataRow>
+        <td *ngIf="isLoading" class="mat-cell-load absolute w-100" [attr.colspan]="colspan"><mat-progress-bar mode="indeterminate" class="table-progressbar"></mat-progress-bar></td>
+        <td *ngIf="!isLoading" class="mat-cell center" [attr.colspan]="displayedColumns.length">
+          No Data Found
+        </td>
+      </tr>
+
+      <!-- <mat-footer-row
+        *matFooterRowDef="['noData']"
+        [ngClass]="{'hide-not-found-msg':!(dataSource !== null && dataSource.filteredData.length === 0)}"
+      >
+      </mat-footer-row> -->    
+      </table>
+  </div>
+  <ng-container *ngIf="isAsync; then asyncPaginator else normalPaginator">
+  </ng-container>
+  <ng-template #asyncPaginator>
+    <mat-paginator #paginator 
+                  (page)="handlePageEvent($event)"
+                  [length]="pagination.length"
+                  [pageSize]="pagination.size"
+                  [pageIndex]="pagination.index"
+                  [showFirstLastButtons]="true"
+                  [pageSizeOptions]="pagination.sizeOptions">
+    </mat-paginator>
+  </ng-template>
+  <ng-template #normalPaginator>
+    <mat-paginator #paginator 
+                [length]="100"
+                [pageSize]="10"
+                [pageSizeOptions]="[5, 10, 25, 100]"
+                aria-label="Select page">
+    </mat-paginator>
+  </ng-template>

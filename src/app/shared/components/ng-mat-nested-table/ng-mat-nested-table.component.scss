@@ -1,0 +1,42 @@
+table {
+  width: 100%;
+}
+
+tr.nested-detail-row {
+  height: 0;
+}
+
+tr.nested-element-row:not(.nested-expanded-row):hover {
+  background: lightgray;
+}
+
+tr.nested-element-row:not(.nested-expanded-row):active {
+  background: #efefef;
+}
+
+.nested-element-row td {
+  border-bottom-width: 0;
+}
+
+.nested-element-detail {
+  overflow: hidden;
+  display: flex;
+}
+
+.inner-table {
+  width: 100%;
+  padding-bottom: 24px;
+}
+
+.inner-table mat-form-field {
+  margin-top: 15px;
+  width: 100%;
+}
+
+.nested-tbl-bg {
+  background: #e7eff9;
+}
+
+.center {
+  text-align: center;
+}

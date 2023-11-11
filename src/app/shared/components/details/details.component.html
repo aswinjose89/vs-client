@@ -1,0 +1,31 @@
+<div class="matero-row" fxLayout="row wrap">
+    <mat-card *ngFor="let row of data">
+        <mat-card-title>{{row.title}}</mat-card-title>
+        <mat-card-content>
+            <div class="matero-row" fxLayout="row wrap">
+                <ng-container *ngFor="let record of row.source">
+                         
+                        <ng-container [ngSwitch]="record.type">
+                            <ng-container *ngSwitchCase="'list'">
+                                <div class="matero-col" fxFlex="100" fxFlex.gt-sm="{{record.fxFlexGtSm}}">
+                                    <mat-form-field appearance="fill" class="w-100">
+                                        <mat-label>{{record.key}}</mat-label>
+                                        <mat-icon matSuffix [matTooltip]="record.comment">help</mat-icon>
+                                        <textarea matInput readonly>{{record.value}}</textarea>
+                                      </mat-form-field>
+                                </div>
+                            </ng-container>
+                            <ng-container *ngSwitchDefault>
+                                <div class="matero-col" fxFlex="100" fxFlex.gt-sm="{{record.fxFlexGtSm}}">
+                                    <shd-read-only-field [value]="record.value" [title]="record.key" 
+                                    [comment]="record.comment" [class]="row[record.orig_key]?.class">
+                                    </shd-read-only-field> 
+                                </div>
+                            </ng-container>                            
+                        </ng-container>        
+                    
+                </ng-container>   
+            </div>         
+        </mat-card-content>
+    </mat-card>
+</div>

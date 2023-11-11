@@ -1,0 +1,37 @@
+// Material components style fix
+
+.mat-card {
+  margin-bottom: $gutter;
+}
+
+.mat-accordion {
+  display: block;
+  margin-bottom: $gutter;
+}
+
+.mat-list-base {
+  position: relative;
+}
+
+.form-field-full {
+  .mat-form-field {
+    width: 100%;
+  }
+}
+
+.cdk-overlay-pane {
+  .mat-menu-notification {
+    max-height: 600px;
+  }
+}
+
+.mat-tooltip.notification-tooltip {
+  background: linear-gradient(
+    90deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(9, 9, 121, 1) 35%,
+    rgba(0, 212, 255, 1) 100%
+  );
+  font-size: 12px;
+  font-weight: bold;
+}

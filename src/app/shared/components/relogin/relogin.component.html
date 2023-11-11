@@ -1,0 +1,13 @@
+<div>
+    <h1 mat-dialog-title>
+        <div class="matero-row" fxLayout="row wrap" fxFlex="100" fxFlex.gt-sm="100">
+            Relogin Request
+          </div>
+    </h1>
+    <div mat-dialog-content>
+        {{getData().message}}
+    </div>
+    <mat-dialog-actions align="end">
+        <button mat-raised-button color="primary" (click)="relogin()">Relogin</button>
+    </mat-dialog-actions>
+</div>

@@ -1,0 +1,18 @@
+<mat-form-field appearance="legacy" class="w-100">
+    <mat-label>{{title | async}}</mat-label>
+    <input type="text" matInput
+    ngxDaterangepickerMd
+    [(ngModel)]="model"
+    [showCustomRangeLabel]="true"
+    [alwaysShowCalendars]="true"
+    [ranges]="ranges"
+    [linkedCalendars]="true"
+    [isInvalidDate] = "isInvalidDate"
+    [showClearButton]="true"
+    [timePicker]="true"
+    [timePickerSeconds]="true"
+    [timePicker24Hour]="true"
+    (change)="dateRangeChange($event)"
+    autocomplete="off"
+    name="daterange"/>
+  </mat-form-field>    

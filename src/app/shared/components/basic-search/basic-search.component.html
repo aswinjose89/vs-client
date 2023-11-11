@@ -1,0 +1,24 @@
+<div class="container">
+    <!-- Search Icon -->
+<button mat-icon-button *ngIf="!showSearch && showButton" [@fadeInOut]="'in'" (click)="toggleSearch()">
+    <mat-icon>search</mat-icon>
+  </button>
+  
+  <!-- Close Icon -->
+  <button mat-icon-button *ngIf="showSearch" (click)="toggleSearch()">
+    <mat-icon>close</mat-icon>
+  </button>
+  
+  <!-- Search Bar -->
+  <mat-form-field 
+    class="search-bar" 
+    floatLabel="never"
+    [(ngModel)]="modelValue"
+    [ngStyle]="{'max-width': showSearch ? '18.75rem' : '0'}">
+    <mat-label>Search</mat-label>
+    <input matInput>
+    <button mat-button matSuffix mat-icon-button (click)="search()">
+      <mat-icon>search</mat-icon>
+    </button>
+  </mat-form-field>
+</div>

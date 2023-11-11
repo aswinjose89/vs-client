@@ -1,0 +1,77 @@
+@import "./custom/mixins";
+@import "./custom/material";
+@import "./custom/table";
+
+mat-cell .bg-lightgreen {
+  background-color: lightgreen;
+}
+
+mat-cell .bg-orangered {
+  background-color: orangered;
+}
+
+.amcharts-mapline path {
+  stroke-linejoin: round;
+  stroke-linecap: round;
+  stroke-dasharray: 500%;
+  stroke-dasharray: 0.25rem; /* fixes IE prob */
+  stroke-dashoffset: 0; /* fixes IE prob */
+  -webkit-animation: am-draw 200s linear infinite;
+  animation: am-draw 200s linear infinite;
+}
+@-webkit-keyframes am-draw {
+  0% {
+    stroke-dashoffset: 500%;
+  }
+  100% {
+    stroke-dashoffset: 100%;
+  }
+}
+@keyframes am-draw {
+  0% {
+    stroke-dashoffset: 500%;
+  }
+  100% {
+    stroke-dashoffset: 100%;
+  }
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.pull-right {
+  float: right;
+}
+
+.v-center {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.realTimeTbl {
+  .mat-table,
+  .mat-paginator {
+    background: linear-gradient(to right, #b6f492, #338b93);
+  }
+}
+
+.font-bold {
+  font-weight: bold;
+}
+
+.relative {
+  position: relative;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.text-blue-500 {
+  color: mat-color($mat-blue, 500);
+}

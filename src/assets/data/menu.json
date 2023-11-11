@@ -1,0 +1,118 @@
+{
+  "menu": [
+    {
+      "route": "dashboard",
+      "name": "dashboard",
+      "type": "link",
+      "icon": "dashboard"
+    },
+    {
+      "route": "live-traffic",
+      "name": "live-traffic",
+      "type": "sub",
+      "icon": "network_check",
+      "children": [
+        {
+          "route": "traffics",
+          "name": "traffics",
+          "type": "link",
+          "icon": "network_check",
+          "target": "_blank"
+        },
+        {
+          "route": "benign",
+          "name": "benign",
+          "type": "link",
+          "icon": "network_check",
+          "target": "_blank"
+        },
+        {
+          "route": "anomaly",
+          "name": "anomaly",
+          "type": "link",
+          "icon": "network_check",
+          "target": "_blank"
+        }
+      ]
+    },
+    {
+      "route": "cumulative-traffic",
+      "name": "cumulative-traffic",
+      "type": "link",
+      "icon": "assessment"
+    },
+    {
+      "route": "traffic-analyzer",
+      "name": "traffic-analyzer",
+      "type": "link",
+      "icon": "search"
+    },
+    {
+      "route": "packet-management",
+      "name": "packet-management",
+      "type": "link",
+      "icon": "dns"
+    },
+    {
+      "route": "model-ensemble",
+      "name": "model-ensemble",
+      "type": "sub",
+      "icon": "compare_arrows",
+      "children": [
+        {
+          "route": "ensembling",
+          "name": "ensembling",
+          "type": "link",
+          "icon": "compare_arrows"
+        },
+        {
+          "route": "ensemble-analyzer",
+          "name": "ensemble-analyzer",
+          "type": "link",
+          "icon": "compare_arrows"
+        }
+      ]
+    },
+    {
+      "route": "dark-web",
+      "name": "dark-web",
+      "type": "hide",
+      "icon": "developer_mode",
+      "label": {
+        "color": "orange-500",
+        "value": "WIP"
+      }
+    },
+    {
+      "route": "infrastructure",
+      "name": "infrastructure",
+      "type": "hide",
+      "icon": "graphic_eq",
+      "label": {
+        "color": "orange-500",
+        "value": "WIP"
+      }
+    },
+    {
+      "route": "simulation",
+      "name": "simulation",
+      "type": "link",
+      "icon": "assignment",
+      "target": "_blank",
+      "label": {
+        "color": "orange-500",
+        "value": "FOR DEMO"
+      }
+    },
+    {
+      "route": "kitchen-sink",
+      "name": "kitchen-sink",
+      "type": "link",
+      "icon": "dns",
+      "label": {
+        "color": "orange-500",
+        "value": "FOR DEVELOPERS"
+      }
+    }
+  ]
+}

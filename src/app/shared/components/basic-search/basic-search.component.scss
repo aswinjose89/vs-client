@@ -1,0 +1,7 @@
+.container {
+  overflow: hidden;
+}
+.search-bar {
+  // overflow: hidden;
+  transition: max-width 250ms ease-in-out;
+}

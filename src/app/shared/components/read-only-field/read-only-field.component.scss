@@ -1,0 +1,28 @@
+:host ::ng-deep .mat-form-field-underline {
+  /*height: 0px !important;*/
+  display: none;
+}
+
+.mat-input-element:disabled {
+  color: currentColor;
+}
+
+.full-width {
+  width: 100%;
+  font-size: 16px;
+}
+
+.text-with-dots:not(:hover) {
+  /*display: block;*/
+  /*max-width: 98%;*/
+  /*white-space: nowrap;*/
+  /*overflow: hidden !important;*/
+
+  text-overflow: ellipsis;
+}
+
+::ng-deep .custom-mat-tooltip {
+  white-space: pre-line;
+  overflow: unset;
+  display: inline;
+}
