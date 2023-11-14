@@ -8,3 +8,4 @@ export * from "./relogin/relogin.component";
 export * from "./alert-message/alert-message.component";
 export * from "./dual-listbox/dual-listbox.component";
 export * from "./basic-search/basic-search.component";
+export * from "./monaco-editor/monaco-editor.component";

@@ -15,6 +15,7 @@ import { FormlyMaterialModule } from "@ngx-formly/material";
 import { ToastrModule } from "ngx-toastr";
 import { TranslateModule } from "@ngx-translate/core";
 import { NgxDaterangepickerMd } from "ngx-daterangepicker-material";
+import { MonacoEditorModule, NgxMonacoEditorConfig } from "ngx-monaco-editor";
 
 import { BreadcrumbComponent } from "./components/breadcrumb/breadcrumb.component";
 import { PageHeaderComponent } from "./components/page-header/page-header.component";
@@ -33,9 +34,18 @@ import {
   AlertMessageComponent,
   DualListboxComponent,
   BasicSearchComponent,
+  MonacoEditorComponent,
 } from "./components";
 import { GlobalService } from "./services";
 import { NgMatNestedTableComponent } from "./components/ng-mat-nested-table/ng-mat-nested-table.component";
+
+const monacoConfig: NgxMonacoEditorConfig = {
+  baseUrl: "assets", // configure base path cotaining monaco-editor directory after build default: './assets'
+  defaultOptions: { scrollBeyondLastLine: false }, // pass default options to be used
+  onMonacoLoad: () => {
+    console.log((<any>window).monaco);
+  }, // here monaco object will be available as window.monaco use this function to extend monaco editor functionalities.
+};
 
 const MODULES = [
   MaterialModule,
@@ -63,6 +73,7 @@ const COMPONENTS = [
   AlertMessageComponent,
   DualListboxComponent,
   BasicSearchComponent,
+  MonacoEditorComponent,
 ];
 const COMPONENTS_DYNAMIC = [];
 const DIRECTIVES = [DisableControlDirective];
@@ -82,6 +93,7 @@ const PIPES = [SafeUrlPipe, ToObservablePipe];
     RouterModule,
     ReactiveFormsModule,
     NgxDaterangepickerMd.forRoot(),
+    MonacoEditorModule.forRoot(monacoConfig),
     ...MODULES,
   ],
   exports: [

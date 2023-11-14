@@ -1,0 +1,16 @@
+// .my-code-editor {
+//     .editor-container {
+//       height: calc(100vh - 200px);
+//     }
+//   }
+
+.my-code-editor {
+  height: calc(100vh - 120px); /* Default height */
+}
+
+@media (min-width: 768px) {
+  /* For medium screens and up */
+  .my-code-editor {
+    height: calc(100vh - 120px);
+  }
+}

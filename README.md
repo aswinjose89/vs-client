@@ -1,21 +1,18 @@
 <p align="center">
-  <a href="https://github.com/ng-matero">
+  <a href="https://github.com/aswinjose89">
     <img width="150" src="https://user-images.strikinglycdn.com/res/hrscywv4p/image/upload/244879/459522_878566.png">
   </a>
 </p>
 
 <h1 align="center">
-CyberNeuroRT - Client
+Python Vulnerability Scanner
 </h1>
 
 
 ## ✨ Features
 
-- Live Traffic
-- Dashboard
-- Traffic Aggregation
-- Search-Analysis-Hunt
-- Dark Web
+- Find Vulnerability
+- Auto Formatting python Code
 
 ## 📦 Compatibility
 
@@ -38,16 +35,10 @@ $ cd <project-name>
 $ npm install
 ```
 
-## 🔧 Docker Image
-```sh
-  docker run --rm -it -p 8084:80 quantumventura/nids-client:latest
-```
 
 ## 📦 Git Commands
 ```sh
-  git clone --recursive git@github.com:Globalhelpforall/nids_client.git
-  cd nids/nids_client
-  git checkout master
+  git clone --recursive git@github.com:aswinjose89/vs-client.git
 ```
 Make sure you have done ssh setup done already otherwise follow below steps
 

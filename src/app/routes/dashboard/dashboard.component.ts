@@ -25,14 +25,7 @@ import { dashboardConfig } from "./configs";
 @Component({
   selector: "app-dashboard",
   templateUrl: "./dashboard.component.html",
-  styles: [
-    `
-      .mat-raised-button {
-        margin-right: 8px;
-        margin-top: 8px;
-      }
-    `,
-  ],
+  styleUrls: ["./dashboard.component.scss"],
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [DashboardService],
 })
@@ -417,9 +410,9 @@ export class DashboardComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   loadHighCharts() {
-    this.attackDistChartRender();
-    this.topCategoriesRender();
-    this.timelineChartRender();
+    // this.attackDistChartRender();
+    // this.topCategoriesRender();
+    // this.timelineChartRender();
   }
 
   attackDistChartRender() {

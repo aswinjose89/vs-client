@@ -1,0 +1,93 @@
+.editor-pane {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 102px);
+  width: 100%;
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.editor-tab-bar {
+  --tab-height: 50px;
+  --sb-page-background: black;
+  --text-color: white;
+  background-color: var(--sb-page-background);
+  display: flex;
+  flex-shrink: 0;
+  height: var(--tab-height);
+  overflow: hidden;
+}
+
+.editor-tab-bar-left {
+  --tab-height: 50px;
+  display: flex;
+  height: calc(var(--tab-height) + 20px);
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+  width: 10%;
+  color: var(--text-color);
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  border-bottom: 1px solid #1c2130;
+
+  display: inline-flex;
+  align-items: center;
+  line-height: 24px;
+  padding: 12px 24px;
+}
+
+.editor-tab-bar-right {
+  display: table-cell;
+  background: #2d2f34;
+  align-items: center;
+  display: flex;
+  flex-shrink: 0;
+  width: 90%;
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: flex-end;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.mat-button-base {
+  margin: 8px 8px 8px 0;
+  line-height: 30px;
+}
+
+.report-pane {
+  background: #2d2f34;
+  color: white;
+}
+
+:host ::ng-deep .mat-tab-label {
+  background: #2d2f34;
+  color: white;
+}
+
+.tab-content {
+  height: calc(100vh - 0px);
+  background: black;
+  padding: 3%;
+}
+.w-100 {
+  width: 100%;
+}
+
+:host ::ng-deep .mat-card-header-text {
+  width: 100%;
+}
+
+.vul-tbl table,
+th,
+td {
+  border-collapse: collapse;
+  border: 2px solid orange;
+  border-radius: 10px;
+  border-style: dotted;
+}
+
+.vul-tbl td {
+  padding: 1%;
+}

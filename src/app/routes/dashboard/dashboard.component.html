@@ -1,13 +1,71 @@
 <div class="matero-row" fxLayout="row wrap">
 
   <!-- Charts -->
-  <div class="matero-col" fxFlex="100" fxFlex.gt-sm="100" fxFlexFill>
-    <mat-card>
-      <mat-card-subtitle>{{ 'dashboard.network_traffic' | translate}}</mat-card-subtitle>
-      <div>
-        
+  <div fxFlex="100" fxFlex.gt-sm="100" fxFlexFill>
+    <div fxFlex="100" fxFlex.gt-sm="100" fxFlexFill>
+      <div class="editor-pane">
+        <div class="editor-tab-bar">
+          <div class="editor-tab-bar-left">main.py</div>
+          <div class="editor-tab-bar-right">
+            <section>
+              <button mat-flat-button>Clear</button>
+              <button mat-flat-button color="primary">Scan</button>
+            </section>            
+          </div>
+        </div>
+        <shd-monaco-editor></shd-monaco-editor>   
       </div>
-    </mat-card>
+    </div>
+    <div fxFlex="100" fxFlex.gt-sm="100" fxFlexFill> 
+      <div class="report-pane">
+        <mat-tab-group 
+        mat-stretch-tabs="false" mat-align-tabs="start" [color]="'accent'">
+          <mat-tab>
+            <ng-template mat-tab-label>
+              <div class="col">Vulnerability Scan Report</div>
+            </ng-template>
+            <div class="tab-content">
+              <mat-card class="w-100">
+                <mat-card-header class="w-100">
+                  <mat-card-title><a href="#">CWE-78</a></mat-card-title>
+                  <mat-card-subtitle class="w-100">
+                    <div class="matero-row" fxLayout="row wrap">
+                    <div fxFlex="50" fxFlex.gt-sm="50" fxFlexFill>
+                      Severity is <span style="color: red;">Low</span>
+                    </div>
+                    <div fxFlex="50" fxFlex.gt-sm="50" fxFlexFill>Confidence is <span style="color: red;">High</span></div>
+                  </div>
+                  </mat-card-subtitle>
+                </mat-card-header>
+                <mat-card-content>
+                  <div >
+                    <table class="w-100 vul-tbl">
+                      <tr>
+                        <td>Error Location</td>
+                        <td style="color: red;">./command_injection.py:6:4</td>
+                      </tr>
+                      <tr>
+                        <td>Vulnerable Details</td>
+                        <td style="color: red;">Starting a process with a partial executable path</td>
+                      </tr>
+                    </table>
+                  </div>
+                </mat-card-content>
+              </mat-card>
+              <mat-card>
+                <mat-card-content>Simple card</mat-card-content>
+              </mat-card>
+              
+            </div>
+          </mat-tab>
+          <mat-tab>
+            <ng-template mat-tab-label>
+              <div class="col">Build Report</div>
+            </ng-template>
+            <div class="tab-content">Content2</div>
+          </mat-tab>
+        </mat-tab-group>
+      </div> 
+    </div>
   </div>
-
 </div>
